@@ -1,0 +1,19 @@
+@import '../../scss/abstracts/variables.scss';
+
+.footer{
+    margin-top: auto;
+    padding: 16px 0;
+    background-color: $background-section-light;
+    &__container-link{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        }
+
+    &__copyright{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+}

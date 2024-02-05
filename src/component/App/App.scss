@@ -1,0 +1,48 @@
+@import '../../scss/abstracts/variables.scss';
+
+.app{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: aliceblue;
+    box-shadow: 0 0 4px #c2bbb4;
+    border-radius: $radius-app-modal-main;
+    &__main, .fiat{
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 32px;
+        gap:24px;
+        flex-direction: row;
+
+    }
+    &__header{
+        display: flex;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: #E1DCEF;
+        border-radius: $radius-app-modal-main;
+    }
+    &__tab{
+        display: flex;
+        padding: 16px 32px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transform: scale(0.95);
+        transition: all ease-in-out 0.2s;
+        background-color: #E1DCEF;
+        &:hover{
+            background-color: aliceblue;
+        }
+        &--active{
+            background-color: aliceblue;
+            transform: scale(1);
+        }
+    }
+}
