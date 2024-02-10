@@ -28,7 +28,6 @@ const App = () => {
         setCurrentTabs(e.target)
         element.classList.add('app__tab--active')
     }
-    console.log(cookies.get('currentMode'));
     return ( <section>
         <div className="container">
             <div className="app">

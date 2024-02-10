@@ -1,27 +1,232 @@
-.fiat{
-    &__converter{
-        flex:1 1 50% ;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 16px;
-    }
-    &__input-main{
-        padding: 16px 16px;
-        border: none;
-        border-radius: 8px;
-        border: 1px solid blue;
-        cursor: pointer;
-    }
+@import "../../scss/abstracts/variables.scss";
 
-    &__btn-change{
+.fiat {
+  &__col {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    gap: 16px;
+    
+  }
+  &__col-row{
+    display: flex;
+    &--gap{
+        gap:16px
+    }
+  }
+  &__converter {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: stretch;
+    justify-content: space-around;
+    gap: 64px;
+  }
+  &__input-main {
+    padding: 16px 16px;
+    border: none;
+    border-radius: 8px;
+    border: 2px solid #a7a0bd;
+    cursor: pointer;
+    box-shadow: 0 0 0 3px #ccc5e0;
+    outline: none;
+    transition: all ease-in-out 0.25s;
+    &:hover {
+      border: 2px solid #635985;
+      box-shadow: 0 0 0 3px #8f87a8;
+    }
+    &:focus {
+      border: 2px solid #a496d3;
+      box-shadow: 0 0 0 3px #635985;
+    }
+  }
+
+  &__btn-change {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    width: 40px;
+    height: 40px;
+  }
+  &__news {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  &__title {
+    order: -1;
+    flex: 1 1 100%;
+    text-align: center;
+    font-size: 32px;
+  }
+  &__news-card,
+  .news-card {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    flex: 1 1 200px;
+    max-height: 300px;
+    min-height: 300px;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 4px #f3f3f3;
+    transition: all ease-in-out 0.25s;
+    &:hover {
+      box-shadow: 0 0 0 3px #8f87a8;
+    }
+    &:active {
+      transform: scale(0.99);
+    }
+    &--transition {
+      animation: transition 2s forwards;
+    }
+    &__title {
+      font-family: Roboto;
+      font-size: 16px;
+      margin: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: black;
+      font-weight: 900;
+      &--loader {
+        opacity: 0.1;
+        color: transparent;
+        background-color: #8f87a8;
+        animation: loader 1s infinite;
+      }
+    }
+    &__button{
+        margin-top: auto;
+        background-color: #635985;
+        border: none;
+        color: #ffffff;
+        padding: 16px 16px;
+        font-family: Roboto;
+        cursor: pointer;
+        &:hover{
+
+        }
+        &--loader{
+            color: transparent;
+        word-spacing: 12px;
+        opacity: 0.1;
+        font-size: 8px;
+        background-color: #8f87a8;
+        animation: loader 2s infinite;
+        }
+    }
+    &__image {
+      display: block;
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      &--loader {
+        opacity: 0.1;
+        background-color: #8f87a8;
+        animation: loader 2s infinite;
+      }
+    }
+    &__desc {
+      font-family: Roboto;
+      display: -webkit-box;
+      font-size: 11px;
+      font-weight: 400;
+      margin: 8px;
+      color: #252525;
+      overflow: hidden;
+      &--loader {
         display: flex;
-        align-items: center;
-        align-self: center;
-        width: 40px;
-        height: 40px;
+        font-size: 11px;
+        font-weight: 400;
+        margin: 8px;
+        color: #252525;
+        gap: 2px;
+        flex-wrap: wrap;
+      }
+      &--loader > p {
+        color: transparent;
+        word-spacing: 12px;
+        opacity: 0.1;
+        font-size: 8px;
+        background-color: #8f87a8;
+        animation: loader 2s infinite;
+      }
     }
-    &__news{
-        flex:1 1 50% ;
-    }
+  }
+}
+@keyframes loader {
+  0% {
+    background-color: #8f87a8;
+    opacity: 0.1;
+  }
+  50% {
+    background-color: #9691a3;
+    opacity: 0.5;
+  }
+  75% {
+    background-color: #9691a3;
+    opacity: 0.5;
+  }
+  100% {
+    background-color: #8f87a8;
+    opacity: 0.1;
+  }
+}
+@keyframes transition {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  animation: prixClipFix 2s linear infinite;
+}
+.loader::after {
+  inset: 8px;
+  transform: rotate3d(90, 90, 0, 180deg);
+  border-color: #ff3d00;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  75%,
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
 }
